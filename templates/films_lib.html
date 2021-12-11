@@ -7,32 +7,38 @@
         table, th, tr, td {border: 1px solid black;}
     </style>
 </head>
+</form>
+</section>
 <body>
 <h2>BIBLIOTEKA FILMOWA</h2>
 <table>
     <thead>
     <th>Id</th>
-    <th>Title</th>
-    <th>Plot</th>
-    <th>Year</th>
+     <th>Image</th>
+    <th>Title</th> <th>Year</th>
     <th>Cast</th>
-
+    <th>Plot</th>
+    <th>Genre</th>
     </thead>
 {% for film in films %}
     <tr>
-        <td><a href="/films/{{ loop.index }}/">{{ film.id }}</a></td>
-        <td>{{ film.title }}</td>
-        <td>{{ film.plot }}</td>
-        <td>{{ film.year }}</td>
-        <td>{{ film.actors }}</td>
-        <td><img src="{{ film.posterUrl }}"></td>
+        <td><a href="{{ loop.index }}">{{ film.id }}</a></td>
 
+        <td><img src="{{ film.posterUrl }}" style="object-fit:fill;
+            width:100px;
+            height:150px;
+            border: solid 1px #CCC"></td><td>{{ film.year }}</td>
+        <td>{{ film.title }}</td>
+        <td>{{ film.actors }}</td>
+        <td>{{ film.plot }}</td>
+        <td>{{ film.genres }}</td>
     </tr>
 {% endfor %}
 </table>
+
 <div>
     <h2> Dodaj nowe zadanie: </h2>
-        <form method="POST" action="/films/">
+        <form method="POST" action="/api/v1/films/">
             {{ form.hidden_tag() }}
             <table>
                     {% for field in form if field.widget.input_type != 'hidden' %}

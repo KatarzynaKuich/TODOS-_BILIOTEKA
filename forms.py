@@ -1,11 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,URLField,DateField
+from wtforms import StringField,TextAreaField,URLField,IntegerField
 
 class FilmForm(FlaskForm):
-    id =StringField()
+    id =      IntegerField()
     title   = StringField()
     plot    = TextAreaField()
-    year    = DateField()
+    year    = StringField()
     actors = TextAreaField()
     posterUrl= StringField()
+    genres = StringField()
 
