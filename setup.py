@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='TODOS _BILIOTEKA',
+    name='filmS _BILIOTEKA',
     version='',
     packages=[''],
     url='',

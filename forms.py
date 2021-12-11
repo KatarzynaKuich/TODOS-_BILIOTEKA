@@ -1,10 +1,11 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,URLField
+from wtforms import StringField,TextAreaField,URLField,DateField
 
-class TodoForm(FlaskForm):
+class FilmForm(FlaskForm):
     id =StringField()
     title   = StringField()
     plot    = TextAreaField()
-    year = StringField()
+    year    = DateField()
     actors = TextAreaField()
+    posterUrl= StringField()
 
