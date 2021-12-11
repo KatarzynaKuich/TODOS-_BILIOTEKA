@@ -1,22 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Szczegóły wpisu</title>
-</head>
-<body>
-    <h2> Zmień: </h2>
-    <form method="POST" action="/api/v1/films/{{ film_id }}">
-       {{ form.hidden_tag() }}
-        <table>
-           # {% for field in form if field.widget.input_type != 'hidden' %}
-                <tr>
-                    <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
-                    <td>{{ field }}</td>
-                </tr>
-           {% endfor %}
-        </table>
-        <input type="submit" value="Go">
-    </form>
-</body>
-</html>
+{% extends "mymaintemplate.html" %}
+{% block title %}
+MY MOVIE LIBRARY
+{% endblock title %}
+{% block mycontent %}
+<section>
+    <h2> Edit/Change/Delete movie </h2>
+
+</section>
+<div class="container">
+    <div class="add_movie">
+
+        <form method="POST" action="/api/v1/films/{{ film_id }}">
+             <table>
+                <div style="text-align:left">
+                    <th><input type="submit" name="submit_button" value="Change">
+                    <th><input type="submit" name="submit_button" value="Delete">
+                    <th><input type="submit" name="submit_button" value="Go Back">
+            </table>
+            {{ form.hidden_tag() }}
+
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            <table>
+                <col width="100px"/>
+                <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
+                <td>{{ field }}</td>
+                {% endfor %}
+            </table>
+
+    </div>
+
+    </section>
+
+
+    {% endblock mycontent %}
+

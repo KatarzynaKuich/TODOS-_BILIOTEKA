@@ -28,4 +28,13 @@ class Films:
         self.films[id] = data
         self.save_all()
 
+    def delete(self,id):
+        todo = self.get(id)
+        if todo:
+            self.films.remove(todo)
+            self.save_all()
+            return True
+        return False
+
+
 films = Films()

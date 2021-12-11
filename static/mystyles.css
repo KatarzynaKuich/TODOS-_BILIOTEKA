@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two&display=swap');
+
+body{
+    background: black;
+    color: white;
+    font-family: 'Lobster Two' ;
+}
+
+input{
+    font-family: 'Lobster Two' ;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+add_movie  form{
+    display: grid;
+    grid-template-columns: 1fr ;
+
+}
+.item {
+    display:grid;
+    flex-direction:column;
+    margin-bottom: 0.8rem;
+}
+.item label{
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+
+td {
+  text-align: left;
+  padding: 2px;
+
+}
+
+
+th {
+  background-color: #5f1cbe;
+  color: white;
+
+
+}
+form textarea#plot {
+     width: 277px;
+     height: 200px;
+     max-width: 300px;
+}
+.content{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
