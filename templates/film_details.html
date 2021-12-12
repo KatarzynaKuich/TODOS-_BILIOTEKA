@@ -4,7 +4,7 @@ MY MOVIE LIBRARY
 {% endblock title %}
 {% block mycontent %}
 <section>
-    <h2> Edit/Change/Delete movie </h2>
+    <h1> EDIT/CHANGE/DELETE MOVIE </h1>
 
 
 
@@ -21,11 +21,11 @@ MY MOVIE LIBRARY
 
             {% for field in form if field.widget.input_type != 'hidden' %}
             <table>
-                <col width="300px"/>
-                <th >{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
+                <col width="800px"/>
+                <th style="width:15%" >{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
 
                 <td >{{ field }}</td>
-                {% endfor %}
+                    {% endfor %}</div>
             </table>
  </section>
 

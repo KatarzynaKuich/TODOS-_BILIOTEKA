@@ -14,8 +14,8 @@ MY MOVIE LIBRARY
         <tr>
             <th>Id</th>
             <th>Image</th>
-            <th>Title</th>
             <th>Year</th>
+            <th>Title</th>
             <th>Cast</th>
             <th>Plot</th>
             <th>Genre</th>
@@ -23,13 +23,12 @@ MY MOVIE LIBRARY
         {% for film in films %}
         <tr>
             <td><a href="{{ loop.index }}">{{ film.id }}</a></td>
-
             <td><img src="{{ film.posterUrl }}" style="object-fit:fill;
             width:100px;
             height:150px;
             border: solid 1px #CCC"></td>
             <td>{{ film.year }}</td>
-            <td>{{ film.title }}</td>
+            <td><div style="font-weight: bold;color:yellow" >{{ film.title }}</td></div>
             <td>{{ film.actors }}</td>
             <td>{{ film.plot }}</td>
             <td>{{ film.genres }}</td>
@@ -40,18 +39,18 @@ MY MOVIE LIBRARY
 </div>
 
 <div>
-    <h2> Add new movie : </h2>
+    <h2> ADD NEW MOVIE : </h2>
     <div class="add_movie">
         <form method="POST" action="/api/v1/films/">
             {{ form.hidden_tag() }}
             {% for field in form if field.widget.input_type != 'hidden' %}
             <table>
-                
+                <col width="200px"/>
                 <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
                 <td>{{ field }}</td>
                 {% endfor %}
             </table>
-            <div >
+            <div>
                 <input type="submit" value="ADD MOVIE">
             </div>
 

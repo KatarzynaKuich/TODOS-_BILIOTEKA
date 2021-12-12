@@ -37,12 +37,10 @@ def film_details(film_id):
           films.save_all()
           return redirect(url_for("films_list"))  # after update go back to films database
        if request.form['submit_button'] == 'Delete':
-
            result = films.delete(film_id-1)
            if not result:
                 abort(404)
            return redirect(url_for("films_list"))
-
        elif request.form['submit_button'] == 'Go Back':
             print("back")
             return redirect(url_for("films_list"))  # after update go back to films database
