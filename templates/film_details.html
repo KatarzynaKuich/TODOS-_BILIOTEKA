@@ -6,30 +6,28 @@ MY MOVIE LIBRARY
 <section>
     <h2> Edit/Change/Delete movie </h2>
 
-</section>
-<div class="container">
-    <div class="add_movie">
+
+
 
         <form method="POST" action="/api/v1/films/{{ film_id }}">
-             <table>
-                <div style="text-align:left">
-                    <th><input type="submit" name="submit_button" value="Change">
-                    <th><input type="submit" name="submit_button" value="Delete">
-                    <th><input type="submit" name="submit_button" value="Go Back">
-            </table>
-            {{ form.hidden_tag() }}
+            <div class="menu">
+                   <input type="submit"  name="submit_button" value="Change">
+                    <input type="submit"  name="submit_button" value="Delete">
+                    <input type="submit"  name="submit_button" value="Go Back">
+
+            </div>
+    <div class="add movie">
+        {{ form.hidden_tag() }}
 
             {% for field in form if field.widget.input_type != 'hidden' %}
             <table>
-                <col width="100px"/>
-                <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
-                <td>{{ field }}</td>
+                <col width="300px"/>
+                <th >{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
+
+                <td >{{ field }}</td>
                 {% endfor %}
             </table>
-
-    </div>
-
-    </section>
+ </section>
 
 
     {% endblock mycontent %}

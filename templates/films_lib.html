@@ -8,7 +8,8 @@ MY MOVIE LIBRARY
 {% block mycontent %}
 <div class="container">
     {% block content %}
-    <h2>MOVIE LIBRARY</h2>
+
+    <h1>MOVIE LIBRARY</h1>
     <table>
         <tr>
             <th>Id</th>
@@ -45,12 +46,12 @@ MY MOVIE LIBRARY
             {{ form.hidden_tag() }}
             {% for field in form if field.widget.input_type != 'hidden' %}
             <table>
-                <col width="100px"/>
+                
                 <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
                 <td>{{ field }}</td>
                 {% endfor %}
             </table>
-            <div style="text-align:left">
+            <div >
                 <input type="submit" value="ADD MOVIE">
             </div>
 

@@ -6,20 +6,23 @@ body{
     font-family: "Lato",sans-serif ;
 }
 
-input{
+input [type=form]{
     font-family: "Lato",sans-serif;
     font-size: 1.5rem;
     padding: 10px;
+    width: 500px;
+
 }
 
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
 }
 
 add_movie  form{
     display: grid;
     grid-template-columns: 1fr ;
+
 
 }
 .item {
@@ -32,14 +35,11 @@ add_movie  form{
     font-size: 1.2rem;
 }
 
-
 td {
   text-align: left;
   padding: 2px;
 
 }
-
-
 th {
   background-color: #5f1cbe;
   color: white;
@@ -47,12 +47,22 @@ th {
 
 }
 form textarea#plot {
-     width: 277px;
+     width: 500px;
      height: 200px;
-     max-width: 300px;
+     max-width: 500px;
 }
 .content{
     display: flex;
     justify-items: center;
     justify-content: center;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
 }

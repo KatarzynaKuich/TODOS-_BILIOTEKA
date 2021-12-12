@@ -15,7 +15,7 @@ def start():
 @app.route("/api/v1/films/", methods=["GET", "POST"])
 def films_list():
     form = FilmForm()
-    form.id.data = films.get(-1)['id']
+    form.id.data = int(films.get(-1)['id'])+1
     error = ""
     if request.method == "POST":
         if form.validate_on_submit():
@@ -33,7 +33,8 @@ def film_details(film_id):
     if form.validate_on_submit():
        if request.form['submit_button'] == 'Change':
           films.update(film_id - 1, form.data)
-          print("changed")
+          films.create(form.data)
+          films.save_all()
           return redirect(url_for("films_list"))  # after update go back to films database
        if request.form['submit_button'] == 'Delete':
 
