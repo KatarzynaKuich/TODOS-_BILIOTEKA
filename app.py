@@ -11,10 +11,11 @@ app.config["SECRET_KEY"] = "nininini"
 def start():
     return redirect(url_for("films_list"))
 
-
+#view all records/add record
 @app.route("/api/v1/films/", methods=["GET", "POST"])
 def films_list():
     form = FilmForm()
+    form.id.data = films.get(-1)['id']
     error = ""
     if request.method == "POST":
         if form.validate_on_submit():
@@ -24,7 +25,7 @@ def films_list():
     return render_template("films_lib.html", form=form, films=films.all(), error=error)
 
 
-# view/change
+# view/change/delete
 @app.route("/api/v1/films/<int:film_id>", methods=["GET", "POST","DELETE"])
 def film_details(film_id):
     film = films.get(film_id - 1)

@@ -43,7 +43,6 @@ MY MOVIE LIBRARY
     <div class="add_movie">
         <form method="POST" action="/api/v1/films/">
             {{ form.hidden_tag() }}
-
             {% for field in form if field.widget.input_type != 'hidden' %}
             <table>
                 <col width="100px"/>

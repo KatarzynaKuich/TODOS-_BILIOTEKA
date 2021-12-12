@@ -35,6 +35,8 @@ class Films:
             self.save_all()
             return True
         return False
-
+    # getting items in sorted order
+    def sort_by_key(list):
+        return list['id']
 
 films = Films()
