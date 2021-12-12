@@ -11,11 +11,12 @@ MY MOVIE LIBRARY
 
     <h1>MOVIE LIBRARY</h1>
     <table>
+    <form method="POST" >
         <tr>
-            <th>Id</th>
+            <th><button type="submit" name="submit_button" value="id">Id</th>
             <th>Image</th>
-            <th>Year</th>
-            <th>Title</th>
+            <th><button type="submit" name="submit_button" value="year">Year</th>
+            <th><button type="submit" name="submit_button" value="title">Title</th>
             <th>Cast</th>
             <th>Plot</th>
             <th>Genre</th>
@@ -36,6 +37,7 @@ MY MOVIE LIBRARY
         {% endfor %}
     </table>
     {% endblock %}
+</form>
 </div>
 
 <div>
@@ -51,7 +53,7 @@ MY MOVIE LIBRARY
                 {% endfor %}
             </table>
             <div>
-                <input type="submit" value="ADD MOVIE">
+                <input type="submit" name="submit_button" value="ADD MOVIE">
             </div>
 
         </form>

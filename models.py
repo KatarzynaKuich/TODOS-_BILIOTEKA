@@ -35,8 +35,11 @@ class Films:
             self.save_all()
             return True
         return False
+
     # getting items in sorted order
-    def sort_by_key(list):
-        return list['id']
+    def sort_by(self,id):
+        self.films = sorted(self.films, key=lambda k: k[id],reverse=False)
+        self.save_all()
+
 
 films = Films()
