@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='filmS _BILIOTEKA',
+    name='FILMS_BIBLIOTEKA',
     version='',
     packages=[''],
     url='',

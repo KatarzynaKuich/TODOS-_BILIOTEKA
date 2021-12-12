@@ -1,6 +1,0 @@
-Do swojego projektu biblioteki/płytoteki, czy domowych wydatków, zaprojektuj i wykonaj API oparte o REST.
-Zadbaj o używanie odpowiednich metod, postaraj się utrzymać prosty i czytelny kod. Pamiętaj o zasadach PEP8. Rozwiązanie prześlij Mentorowi.
-W tym zadaniu liczy się też Twoja inwencja. 
-Z jednej strony chciałby się więc powiedzieć – mierz siły na zamiary, ale z drugiej – nie bój się eksperymentować! 
-Programowanie to także działalność twórcza, więc możesz dodać coś od siebie i 
-wprowadzić jakąś ciekawą funkcjonalność (np. sortowanie książek według dominującego koloru okładki lub liczby stron).
