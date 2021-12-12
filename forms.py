@@ -9,6 +9,6 @@ class FilmForm(FlaskForm):
     plot = TextAreaField()
     year = StringField()
     actors = StringField()
-    posterUrl = StringField()
+    posterUrl = URLField()
     genres = SelectMultipleField("Komedy", choices=["Comedy", "Drama", "Crime", "History", "War", "Thriller", "Music",
                                                     "Adventure", "Sci-Fi","Romance","Action"], coerce=str, option_widget=None)
