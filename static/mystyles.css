@@ -19,12 +19,6 @@ table {
   width: 80%;
 }
 
-add_movie  form{
-    display: grid;
-    grid-template-columns: 1fr ;
-
-
-}
 .item {
     display:grid;
     flex-direction:column;

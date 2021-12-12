@@ -33,7 +33,7 @@ def film_details(film_id):
     if form.validate_on_submit():
        if request.form['submit_button'] == 'Change':
           films.update(film_id - 1, form.data)
-          films.create(form.data)
+
           films.save_all()
           return redirect(url_for("films_list"))  # after update go back to films database
        if request.form['submit_button'] == 'Delete':

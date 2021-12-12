@@ -5,28 +5,23 @@ MY MOVIE LIBRARY
 {% block mycontent %}
 <section>
     <h1> EDIT/CHANGE/DELETE MOVIE </h1>
-
-
-
-
         <form method="POST" action="/api/v1/films/{{ film_id }}">
             <div class="menu">
                    <input type="submit"  name="submit_button" value="Change">
                     <input type="submit"  name="submit_button" value="Delete">
                     <input type="submit"  name="submit_button" value="Go Back">
-
             </div>
     <div class="add movie">
         {{ form.hidden_tag() }}
-
             {% for field in form if field.widget.input_type != 'hidden' %}
             <table>
                 <col width="800px"/>
                 <th style="width:15%" >{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
 
                 <td >{{ field }}</td>
-                    {% endfor %}</div>
+                      {% endfor %}</div>
             </table>
+        </form>
  </section>
 
 
