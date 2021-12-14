@@ -5,7 +5,7 @@ MY MOVIE LIBRARY
 {% block mycontent %}
 <section>
     <h1> EDIT/CHANGE/DELETE MOVIE </h1>
-        <form method="POST" action="/api/v1/films/{{ film_id }}">
+        <form method="POST" action="/films/{{ film_id }}">
             <div class="menu">
                    <input type="submit"  name="submit_button" value="Change">
                     <input type="submit"  name="submit_button" value="Delete">

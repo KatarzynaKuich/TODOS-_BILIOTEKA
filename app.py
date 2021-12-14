@@ -14,7 +14,7 @@ def start():
 
 
 # view all records/add record
-@app.route("/api/v1/films/", methods=["GET", "POST"])
+@app.route("/films", methods=["GET", "POST"])
 def films_list():
     form = FilmForm()
     form.id.data = int(films.get(-1)['id']) + 1
@@ -45,7 +45,7 @@ def films_list():
 
 
 # view/change/delete
-@app.route("/api/v1/films/<int:film_id>", methods=["GET", "POST", "DELETE"])
+@app.route("/films/<int:film_id>", methods=["GET", "POST", "DELETE"])
 def film_details(film_id):
     film = films.get(film_id - 1)
     form = FilmForm(data=film)

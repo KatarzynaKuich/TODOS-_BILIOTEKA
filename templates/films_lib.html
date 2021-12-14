@@ -23,7 +23,7 @@ MY MOVIE LIBRARY
         </tr>
         {% for film in films %}
         <tr>
-            <td><a href="{{ loop.index }}">{{ film.id }}</a></td>
+            <td><a href="/films/{{ loop.index }}">{{ film.id }}</a></td>
             <td><img src="{{ film.posterUrl }}" style="object-fit:fill;
             width:100px;
             height:150px;
@@ -43,7 +43,7 @@ MY MOVIE LIBRARY
 <div>
     <h2> ADD NEW MOVIE : </h2>
     <div class="add_movie">
-        <form method="POST" action="/api/v1/films/">
+        <form method="POST" action="/films">
             {{ form.hidden_tag() }}
             {% for field in form if field.widget.input_type != 'hidden' %}
             <table>

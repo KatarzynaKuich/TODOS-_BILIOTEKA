@@ -28,10 +28,20 @@ class Films:
         self.films[id] = data
         self.save_all()
 
+    def updateAPI(self,id,data):
+        data.pop('csrf_token')
+        film = self.get(id)
+        if film:
+            index = self.films.index(film)
+            self.films[index] = data
+            self.save_all()
+            return True
+        return False
+
     def delete(self,id):
-        todo = self.get(id)
-        if todo:
-            self.films.remove(todo)
+        film = self.get(id)
+        if film:
+            self.films.remove(film)
             self.save_all()
             return True
         return False

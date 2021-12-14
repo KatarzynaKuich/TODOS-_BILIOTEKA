@@ -1,0 +1,71 @@
+from flask import Flask, jsonify, make_response, request, abort
+from models import films
+from forms import FilmForm
+
+app = Flask(__name__)
+app.config["SECRET_KEY"] = "nininini"
+
+
+# error handlers
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found', 'status_code': 404}), 404)
+
+
+@app.errorhandler(400)
+def bad_request(error):
+    return make_response(jsonify({'error': 'Bad request', 'status_code': 400}), 400)
+
+
+# view all records
+@app.route("/api/v1/films/", methods=["GET"])
+def films_api():
+    return jsonify(films.all())
+
+
+# view
+@app.route("/api/v1/films/<int:film_id>", methods=["GET"])
+def film_details(film_id):
+    try:
+        film = films.get(film_id - 1)
+    except IndexError:
+        film = 'null'
+        abort(404)
+    return jsonify({"film": film})
+
+
+# add record
+@app.route("/api/v1/films/", methods=["POST"])
+def films_create():
+    form = FilmForm()
+    films.create(form.data)
+    if not request.json :
+        abort(400)  # go to errorhandler
+    return jsonify({"film": film}), 201
+
+# delete
+@app.route("/api/v1/films/<int:film_id>", methods=['DELETE'])
+def delete_film(film_id):
+    try:
+         result = films.delete(film_id-1)
+    except IndexError:
+        result = 'null'
+        abort(404)
+    return jsonify({'result': result})
+
+# change
+@app.route("/api/v1/films/<int:film_id>", methods=["PUT"])
+def change_film(film_id):
+    form = FilmForm()
+    if not request.json:
+        abort(400)
+    try:
+        result = films.updateAPI(film_id - 1,form.data)
+    except IndexError:
+        result = 'null'
+        abort(404)
+    return jsonify({"result": result})
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
