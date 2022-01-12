@@ -29,8 +29,7 @@ class Films:
         self.save_all()
 
     def updateAPI(self,id,data):
-        data.pop('csrf_token')
-        film = self.get(id)
+        film = self.films[id]
         if film:
             index = self.films.index(film)
             self.films[index] = data
