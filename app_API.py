@@ -81,11 +81,11 @@ def update_todo(film_id):
 film = {
         "id":  data.get('id', film['id']),
         "title" : data.get('title', film['title']),
-        "plot" : data.get('title', film['title']),,
-        "year":  data.get('title', film['title']),
-        "actors":  data.get('title', film['title']),
-        "posterUrl":  data.get('title', film['title']),
-        "genres": data.get('title', film['title']).
+        "plot" : data.get('plot', film['plot']),
+        "year":  data.get('year', film['year']),
+        "actors":  data.get('actors', film['actors']),
+        "posterUrl":  data.get('posterUrl', film['posterUrl']),
+        "genres": data.get('genres', film['genres']).
       }
 films.update(film_id, film)
 return jsonify({'film': film})
