@@ -17,7 +17,7 @@ def start():
 @app.route("/films", methods=["GET", "POST"])
 def films_list():
     form = FilmForm()
-    form.id.data = int(films.get(-1)['id']) + 1
+    form.id.data = (films.get(-1)['id']) + 1
     error = ""
     if request.method == 'POST':
         if request.form['submit_button'] == 'title':

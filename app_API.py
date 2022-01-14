@@ -11,7 +11,6 @@ app.config["SECRET_KEY"] = "nininini"
 def not_found(error):
     return make_response(jsonify({'error': 'Not found', 'status_code': 404}), 404)
 
-
 @app.errorhandler(400)
 def bad_request(error):
     return make_response(jsonify({'error': 'Bad request', 'status_code': 400}), 400)
@@ -37,10 +36,8 @@ def film_details(film_id):
 # add record
 @app.route("/api/v1/films/", methods=["POST"])
 def films_create():
-    form = FilmForm()
-    films.create(form.data)
-    if not request.json:
-        abort(400)  # go to errorhandler
+     if not request.json:
+       abort(400)  # go to errorhandler
     return jsonify({"film": film}), 201
 
 
@@ -57,7 +54,7 @@ def delete_film(film_id):
 
 # change
 @app.route("/api/v1/films/<int:film_id>", methods=["PUT"])
-def update_todo(film_id):
+def update_film(film_id):
     film = films.get(film_id)
     if not film:
         abort(404)
@@ -72,23 +69,21 @@ def update_todo(film_id):
         "year" in data and not isinstance(data.get('year'), str),
         "actors" in data and not isinstance(data.get('actors'), str),
         "posterUrl" in data and not isinstance(data.get('posterUrl'), str),
-        "genres" in data and not isinstance(data.get('title'), str).
-
+        "genres" in data and not isinstance(data.get('title'), str)
     ]):
         abort(400)
+    film = {
+        "id": data.get('id', film['id']),
+        "title": data.get('title', film['title']),
+        "plot": data.get('plot', film['plot']),
+        "year": data.get('year', film['year']),
+        "actors": data.get('actors', film['actors']),
+        "posterUrl": data.get('posterUrl', film['posterUrl']),
+        "genres": data.get('genres', film['genres'])
+    }
+    films.update(film_id, film)
+    return jsonify({'film': film})
 
-
-film = {
-        "id":  data.get('id', film['id']),
-        "title" : data.get('title', film['title']),
-        "plot" : data.get('plot', film['plot']),
-        "year":  data.get('year', film['year']),
-        "actors":  data.get('actors', film['actors']),
-        "posterUrl":  data.get('posterUrl', film['posterUrl']),
-        "genres": data.get('genres', film['genres']).
-      }
-films.update(film_id, film)
-return jsonify({'film': film})
 
 if __name__ == "__main__":
     app.run(debug=True)
