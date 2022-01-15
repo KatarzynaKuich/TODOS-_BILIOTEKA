@@ -36,8 +36,8 @@ def film_details(film_id):
 # add record
 @app.route("/api/v1/films/", methods=["POST"])
 def films_create():
-     if not request.json:
-       abort(400)  # go to errorhandler
+    if not request.json:
+        abort(400)  # go to errorhandler
     return jsonify({"film": film}), 201
 
 
@@ -81,7 +81,7 @@ def update_film(film_id):
         "posterUrl": data.get('posterUrl', film['posterUrl']),
         "genres": data.get('genres', film['genres'])
     }
-    films.update(film_id, film)
+    films.updateAPI(film_id, film)
     return jsonify({'film': film})
 
 
