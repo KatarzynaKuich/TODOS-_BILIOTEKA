@@ -35,10 +35,22 @@ def film_details(film_id):
 
 # add record
 @app.route("/api/v1/films/", methods=["POST"])
-def films_create():
-    if not request.json:
-        abort(400)  # go to errorhandler
-    return jsonify({"film": film}), 201
+def create_film():
+    if not request.json or not 'title' in request.json:
+        abort(400)
+    film = {
+        'id': films.all()[-1]['id'] + 1,
+        'title': request.json['title'],
+        'plot': request.json.get('plot', ""),
+        'year': request.json.get('year', ""),
+        'actors': request.json.get('actors', ""),
+        'posterUrl': request.json.get('posterUrl', ""),
+        'genres':request.json.get('genres', ""),
+
+    }
+    films.createAPI(film)
+    return jsonify({'film': film}), 201
+
 
 
 # delete

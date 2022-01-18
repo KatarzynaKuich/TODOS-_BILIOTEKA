@@ -20,6 +20,10 @@ class Films:
         data.pop('csrf_token')
         self.films.append(data)
 
+    def createAPI(self, data):
+
+        self.films.append(data)
+
     def save_all(self):
         with open("films.json", "w") as f:
             json.dump(self.films, f)
